@@ -7,10 +7,7 @@ namespace DoctrineMigrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Auto-generated Migration: Please modify to your needs!
- */
-final class Version20200329181236 extends AbstractMigration
+final class Version20201022051236 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,16 +17,13 @@ final class Version20200329181236 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         $this->addSql('
-            CREATE TABLE `ihs_user` (
+            CREATE TABLE `ah_user` (
               `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT \'(DC2Type:uuid)\',
               `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
               `first_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
               `last_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
               `middle_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-              `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
               `title` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-              `phone_number` varchar(35) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-              `mobile_number` varchar(35) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
               `created_at` datetime NOT NULL,
               `updated_at` datetime NOT NULL,
               `email_canonical` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -9,4 +9,4 @@ framework:
         buses:
             messenger.bus.user_account:
                 middleware:
-                    - IHelpShopping\Middleware\NoRetryMessageMiddleware
+                    - ArticleHub\Middleware\NoRetryMessageMiddleware

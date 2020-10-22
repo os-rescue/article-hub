@@ -1,8 +1,8 @@
 <?php
 
-namespace IHelpShopping\Tests\UserBundle\Functional;
+namespace ArticleHub\Tests\UserBundle\Functional;
 
-use IHelpShopping\Tests\SecureTestCase;
+use ArticleHub\Tests\SecureTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\HttpFoundation\Request;
 

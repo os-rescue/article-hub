@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Annotation;
+namespace ArticleHub\Annotation;
 
 /**
  * @Annotation

@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\EventListener\User;
+namespace ArticleHub\EventListener\User;
 
 use API\UserBundle\Model\UserInterface;
 use ApiPlatform\Core\EventListener\EventPriorities;

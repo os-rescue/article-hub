@@ -1,8 +1,8 @@
 <?php
 
-namespace IHelpShopping\DataAccessor;
+namespace ArticleHub\DataAccessor;
 
-use IHelpShopping\Exception\MethodNotFoundException;
+use ArticleHub\Exception\MethodNotFoundException;
 
 /**
  * @final

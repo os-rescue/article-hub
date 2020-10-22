@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Validator\Constraints;
+namespace ArticleHub\Validator\Constraints;
 
 use API\UserBundle\Model\UserInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;

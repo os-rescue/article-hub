@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: false
 
-    IHelpShopping\BehatExtension\EventListener\TokenListener:
+    ArticleHub\BehatExtension\EventListener\TokenListener:
         arguments:
             $kernel: '@symfony2_extension.kernel'
         tags:

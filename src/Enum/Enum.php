@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Enum;
+namespace ArticleHub\Enum;
 
 abstract class Enum
 {

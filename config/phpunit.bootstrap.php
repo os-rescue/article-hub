@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/bootstrap.php';
 
-use IHelpShopping\Kernel;
+use ArticleHub\Kernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Input\ArrayInput;

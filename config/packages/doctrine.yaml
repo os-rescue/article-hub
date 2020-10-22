@@ -17,12 +17,12 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            IHelpShoppingwork:
+            ArticleHub:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'IHelpShopping\Entity'
-                alias: IHelpShopping
+                prefix: 'ArticleHub\Entity'
+                alias: ArticleHub
         filters:
             softdeleteable:
                 class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter

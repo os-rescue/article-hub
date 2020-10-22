@@ -1,5 +1,5 @@
 twig:
     paths:
-        '%kernel.project_dir%/templates/bundles/UserBundle': IHelpShoppingwork_userbundle
+        '%kernel.project_dir%/templates/bundles/UserBundle': ArticleHub_userbundle
     date:
         timezone: '%default_timezone%'

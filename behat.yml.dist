@@ -5,15 +5,16 @@ default:
         - FeatureContext:
             kernel: '@kernel'
             doctrine: '@doctrine'
-            jwtManager: '@lexik_jwt_authentication.jwt_manager'
         - Behatch\Context\JsonContext
         - Behatch\Context\RestContext
+        - ArticleContext:
+            doctrine: '@doctrine'
 
   extensions:
     Behat\Symfony2Extension:
       kernel:
         bootstrap: features/bootstrap/bootstrap.php
-        class: IHelpShopping\Kernel
+        class: ArticleHub\Kernel
     Behat\MinkExtension:
       base_url: "http://localhost:8080/"
       files_path: '%paths.base%/features/bootstrap'
@@ -21,4 +22,4 @@ default:
         default:
           symfony2: ~
     Behatch\Extension: ~
-    IHelpShopping\BehatExtension\IHelpShoppingExtension: ~
+    ArticleHub\BehatExtension\ArticleHubExtension: ~

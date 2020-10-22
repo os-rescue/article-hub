@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\BehatExtension\EventListener;
+namespace ArticleHub\BehatExtension\EventListener;
 
 use Behat\Behat\EventDispatcher\Event\FeatureTested;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

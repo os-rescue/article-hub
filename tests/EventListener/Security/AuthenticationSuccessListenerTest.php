@@ -1,8 +1,8 @@
 <?php
 
-namespace IHelpShopping\Tests\EventListener\Security;
+namespace ArticleHub\Tests\EventListener\Security;
 
-use IHelpShopping\Tests\UserBundle\Functional\TestCase;
+use ArticleHub\Tests\UserBundle\Functional\TestCase;
 
 class AuthenticationSuccessListenerTest extends TestCase
 {

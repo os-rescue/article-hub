@@ -1,6 +1,6 @@
 <?php
 
-use IHelpShopping\Kernel;
+use ArticleHub\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

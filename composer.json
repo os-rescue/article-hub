@@ -69,16 +69,16 @@
     },
     "autoload": {
         "psr-4": {
-            "IHelpShopping\\": "src/",
+            "ArticleHub\\": "src/",
             "API\\UserBundle\\": "src/Bundle/user-bundle/",
             "API\\UserBundle\\Form\\Type\\": "src/Bundle/user-bundle/Form/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IHelpShopping\\Tests\\": "tests/",
-            "IHelpShopping\\Tests\\DataProvider\\": "tests/Fixtures/DataProvider/",
-            "IHelpShopping\\BehatExtension\\": "features/extensions/",
+            "ArticleHub\\Tests\\": "tests/",
+            "ArticleHub\\Tests\\DataProvider\\": "tests/Fixtures/DataProvider/",
+            "ArticleHub\\BehatExtension\\": "features/extensions/",
             "API\\UserBundle\\Tests\\": "src/Bundle/user-bundle/Tests/",
             "API\\UserBundle\\Tests\\Form\\Type\\": "src/Bundle/user-bundle/Tests/Form"
         }

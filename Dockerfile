@@ -1,6 +1,6 @@
 ARG PHP_VERSION=7.4
 
-FROM php:${PHP_VERSION}-fpm-alpine AS i_help_shopping
+FROM php:${PHP_VERSION}-fpm-alpine AS article_hub
 
 RUN apk add --no-cache \
 		acl \

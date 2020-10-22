@@ -1,12 +1,12 @@
 <?php
 
-namespace IHelpShopping\DataFixtures\Traits;
+namespace ArticleHub\DataFixtures\Traits;
 
 use API\UserBundle\Model\UserInterface;
+use ArticleHub\Dto\UserRequiredData;
+use ArticleHub\Entity\User;
+use ArticleHub\Traits\UserRequiredDataSetterTrait;
 use Doctrine\Common\Persistence\ObjectManager;
-use IHelpShopping\Dto\UserRequiredData;
-use IHelpShopping\Entity\User;
-use IHelpShopping\Traits\UserRequiredDataSetterTrait;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 trait UserPersistenceTrait
@@ -30,7 +30,6 @@ trait UserPersistenceTrait
             $data['email'],
             $data['first_name'],
             $data['last_name'],
-            $data['address'] ?? null,
             !empty($data['role']) ? [$data['role']] : null,
             $data['plain_password'] ?? null
         );
@@ -38,8 +37,6 @@ trait UserPersistenceTrait
         $user->setEnabled($data['enabled'] ?? false);
         $user->setLocked($data['locked'] ?? false);
         $user->setMiddleName($data['middle_name'] ?? null);
-        $user->setMobileNumber($data['mobile_number'] ?? null);
-        $user->setPhoneNumber($data['phone_number'] ?? null);
 
         if (!empty($data['retry_ttl'])) {
             $retryTtl = $data['retry_ttl'];

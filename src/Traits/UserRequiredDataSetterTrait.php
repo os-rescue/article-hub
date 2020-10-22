@@ -1,10 +1,10 @@
 <?php
 
-namespace IHelpShopping\Traits;
+namespace ArticleHub\Traits;
 
+use ArticleHub\Dto\UserRequiredData;
+use ArticleHub\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
-use IHelpShopping\Dto\UserRequiredData;
-use IHelpShopping\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 trait UserRequiredDataSetterTrait
@@ -16,7 +16,6 @@ trait UserRequiredDataSetterTrait
         $user->setUsername($requiredData->getEmail());
         $user->setFirstName($requiredData->getFirstName());
         $user->setLastname($requiredData->getLastName());
-        $user->setAddress($requiredData->getAddress());
 
         if (null !== $requiredData->getRoles()) {
             $user->setRoles($requiredData->getRoles());

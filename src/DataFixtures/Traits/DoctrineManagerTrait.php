@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\DataFixtures\Traits;
+namespace ArticleHub\DataFixtures\Traits;
 
 use Doctrine\Common\Persistence\ObjectManager;
 

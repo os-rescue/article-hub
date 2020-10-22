@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Middleware;
+namespace ArticleHub\Middleware;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Envelope;

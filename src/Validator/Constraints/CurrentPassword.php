@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Validator\Constraints;
+namespace ArticleHub\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 

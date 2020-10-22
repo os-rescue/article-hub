@@ -1,9 +1,9 @@
 <?php
 
-namespace IHelpShopping\Tests\Dto;
+namespace ArticleHub\Tests\Dto;
 
-use IHelpShopping\Dto\UserDataByToken;
-use IHelpShopping\Entity\User;
+use ArticleHub\Dto\UserDataByToken;
+use ArticleHub\Entity\User;
 use PHPUnit\Framework\TestCase;
 
 class UserDataByTokenTest extends TestCase
@@ -18,7 +18,6 @@ class UserDataByTokenTest extends TestCase
         $this->assertSame($userDataByToken->getFirstName(), $user->getFirstName());
         $this->assertSame($userDataByToken->getMiddleName(), $user->getMiddleName());
         $this->assertSame($userDataByToken->getLastName(), $user->getLastName());
-        $this->assertSame($userDataByToken->isAdmin(), $user->isAdmin());
     }
 
     private function getTestUser(): User

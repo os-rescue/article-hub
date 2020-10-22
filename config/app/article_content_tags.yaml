@@ -1,0 +1,3 @@
+parameters:
+    article_allowed_content_html_tags:
+        - <a>

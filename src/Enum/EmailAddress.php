@@ -1,9 +1,9 @@
 <?php
 
-namespace IHelpShopping\Enum;
+namespace ArticleHub\Enum;
 
 class EmailAddress extends Enum
 {
-    public const I_HELP_SHOPPING_EMAIL = 'info@ihelpshopping.com';
-    public const I_HELP_SHOPPING_NAME = 'IHelp Shopping';
+    public const ARTICLE_HUB_EMAIL = 'info@articlehub.com';
+    public const ARTICLE_HUB_NAME = 'Article Hub Platform';
 }

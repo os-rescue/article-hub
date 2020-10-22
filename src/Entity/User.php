@@ -1,15 +1,15 @@
 <?php
 
-namespace IHelpShopping\Entity;
+namespace ArticleHub\Entity;
 
 use API\UserBundle\Model\User as BaseUser;
 use API\UserBundle\Model\UserInterface;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
+use ArticleHub\Validator\Constraints as ArticleHubAssert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Index;
-use IHelpShopping\Traits\UserNameTrait;
-use IHelpShopping\Validator\Constraints as IHelpShoppingAssert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\Timestampable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -46,7 +46,7 @@ use Symfony\Component\Validator\Constraints\Uuid;
  *     }
  * )
  * @ORM\Table(
- *     name="ihs_user",
+ *     name="ah_user",
  *     indexes={
  *          @Index(name="first_name_idx", columns={"first_name"}),
  *          @Index(name="last_name_idx", columns={"last_name"}),
@@ -61,7 +61,7 @@ use Symfony\Component\Validator\Constraints\Uuid;
  * )
  * @ORM\Entity()
  * @ORM\EntityListeners({
- *     "IHelpShopping\EventListener\User\UserEmailListener",
+ *     "ArticleHub\EventListener\User\UserEmailListener",
  * })
  * @UniqueEntity(
  *     fields={"emailCanonical"},
@@ -69,14 +69,13 @@ use Symfony\Component\Validator\Constraints\Uuid;
  *     message="already.exist",
  *     groups={"Default"}
  * )
- * @IHelpShoppingAssert\CurrentPassword(groups={"SettingPassword"})
+ * @ArticleHubAssert\CurrentPassword(groups={"SettingPassword"})
  *
  * @final
  */
 class User extends BaseUser
 {
     use Timestampable;
-    use UserNameTrait;
 
     /**
      * @ORM\Id
@@ -100,7 +99,7 @@ class User extends BaseUser
      * @Assert\Length(max = 100, maxMessage = "length.max,{{ limit }}")
      * @Assert\NotNull(message="not_null")
      * @Assert\NotBlank(message="not_blank")
-     * @IHelpShoppingAssert\Whitespace()
+     * @ArticleHubAssert\Whitespace()
      * @Groups({
      *     "user_model",
      *     "item_user_normalized",
@@ -114,7 +113,7 @@ class User extends BaseUser
      * @Assert\Length(max = 100, maxMessage = "length.max,{{ limit }}")
      * @Assert\NotNull(message="not_null")
      * @Assert\NotBlank(message="not_blank")
-     * @IHelpShoppingAssert\Whitespace()
+     * @ArticleHubAssert\Whitespace()
      * @Groups({
      *     "user_model",
      *     "item_user_normalized",
@@ -135,23 +134,6 @@ class User extends BaseUser
     protected $middleName;
 
     /**
-     * @ORM\Column(name="address", type="string", length=255, nullable=true)
-     * @Assert\Length(
-     *      min = 1,
-     *      max = 255,
-     *      minMessage = "length.min,{{ limit }}",
-     *      maxMessage = "length.max,{{ limit }}",
-     *     groups={"Default"}
-     * )
-     * @IHelpShoppingAssert\Whitespace()
-     * @Groups({
-     *     "user_model",
-     *     "item_user_normalized",
-     * })
-     */
-    protected $address;
-
-    /**
      * @ORM\Column(name="title", type="string", length=10, nullable=true)
      * @Groups({
      *     "user_model",
@@ -161,18 +143,14 @@ class User extends BaseUser
     protected $title;
 
     /**
-     * @ORM\Column(name="phone_number", type="string", length=35, nullable=true)
-     * @IHelpShoppingAssert\ValidPhone()
-     * @Groups({"user_model", "item_user_normalized"})
+     * @ORM\OneToMany(
+     *     targetEntity="ArticleHub\Entity\Article",
+     *     mappedBy="createdBy",
+     * )
+     * @ApiProperty(attributes={"fetchEager": false})
+     * @ApiSubresource(maxDepth=1)
      */
-    protected $phoneNumber;
-
-    /**
-     * @ORM\Column(name="mobile_number", type="string", length=35, nullable=true)
-     * @IHelpShoppingAssert\ValidPhone()
-     * @Groups({"user_model", "item_user_normalized"})
-     */
-    protected $mobileNumber;
+    protected $articles;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -229,21 +207,57 @@ class User extends BaseUser
         return array_unique($roles);
     }
 
-    public function getAddress(): ?string
+    public function getTitle(): ?string
     {
-        return $this->address;
+        return $this->title;
     }
 
-    public function setAddress(?string $address): self
+    public function __toString(): string
     {
-        $this->address = $address;
+        $middleName = empty($this->getMiddleName()) ? ' ': ' '.$this->getMiddleName().' ';
+
+        return sprintf(
+            '%s%s%s',
+            $this->getFirstName(),
+            $middleName,
+            $this->getLastName()
+        );
+    }
+
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getMiddleName(): ?string
     {
-        return $this->title;
+        return $this->middleName;
+    }
+
+    public function setMiddleName(?string $middleName): self
+    {
+        $this->middleName = $middleName;
+
+        return $this;
+    }
+
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): self
+    {
+        $this->lastName = $lastName;
+
+        return $this;
     }
 
     public function setTitle(?string $title): self
@@ -251,38 +265,5 @@ class User extends BaseUser
         $this->title = null !== $title ? strtolower($title) : null;
 
         return $this;
-    }
-
-    public function getPhoneNumber(): ?string
-    {
-        return $this->phoneNumber;
-    }
-
-    public function setPhoneNumber(?string $phoneNumber): self
-    {
-        $this->phoneNumber = str_replace(' ', '', $phoneNumber);
-
-        return $this;
-    }
-
-    public function getMobileNumber(): ?string
-    {
-        return $this->mobileNumber;
-    }
-
-    public function setMobileNumber(?string $mobileNumber): self
-    {
-        $this->mobileNumber = str_replace(' ', '', $mobileNumber);
-
-        return $this;
-    }
-
-    /**
-     * @ApiProperty(iri="http://schema.org/admin")
-     * @Groups({"item_user_normalized", "collection_users_normalized"})
-     */
-    public function isAdmin(): bool
-    {
-        return \in_array(self::ROLE_SUPER_ADMIN, $this->roles, true);
     }
 }

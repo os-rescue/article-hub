@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Tests;
+namespace ArticleHub\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

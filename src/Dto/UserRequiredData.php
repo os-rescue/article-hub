@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Dto;
+namespace ArticleHub\Dto;
 
 final class UserRequiredData
 {
@@ -8,21 +8,18 @@ final class UserRequiredData
     private $plainPassword;
     private $firstName;
     private $lastName;
-    private $address;
     private $roles;
 
     public function __construct(
         string $email,
         string $firstName,
         string $lastName,
-        ?string $address,
         ?array $roles,
         ?string $plainPassword
     ) {
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->address = $address;
         $this->roles = $roles;
         $this->plainPassword = $plainPassword;
     }
@@ -40,11 +37,6 @@ final class UserRequiredData
     public function getLastName(): string
     {
         return $this->lastName;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
     }
 
     public function getRoles(): ?array

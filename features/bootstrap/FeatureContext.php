@@ -7,7 +7,7 @@ use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behatch\Context\JsonContext;
 use Behatch\Context\RestContext;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use IHelpShopping\Kernel;
+use ArticleHub\Kernel;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +32,6 @@ class FeatureContext extends MinkContext
     private static $token;
 
     private $kernel;
-    private $jwtManager;
     private $manager;
 
     protected $restContext;
@@ -47,11 +46,9 @@ class FeatureContext extends MinkContext
      */
     public function __construct(
         KernelInterface $kernel,
-        ManagerRegistry $doctrine,
-        JWTTokenManagerInterface $jwtManager
+        ManagerRegistry $doctrine
     ) {
         $this->kernel = $kernel;
-        $this->jwtManager = $jwtManager;
         $this->manager = $doctrine->getManager();
     }
 

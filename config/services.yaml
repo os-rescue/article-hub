@@ -1,7 +1,10 @@
+imports:
+    - { resource: app/article/article_content_tags.yaml }
+
 parameters:
     locale: 'en'
     default_timezone: 'Europe/Berlin'
-    platform_env: '%env(IHS_PLATFORM_ENV)%'
+    platform_env: '%env(ARTICLE_HUB_PLATFORM_ENV)%'
 
 services:
     _defaults:
@@ -9,13 +12,13 @@ services:
         autoconfigure: true
         public: false
 
-    IHelpShopping\:
+    ArticleHub\:
         resource: '../src/*'
         exclude:
             - '../src/{Entity,Migrations,Tests,Event,Enum,Dto}'
             - '../src/Bundle/user-bundle/{DependencyInjection,Model,Event,Tests}'
 
-    IHelpShopping\Controller\:
+    ArticleHub\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
@@ -37,25 +40,25 @@ services:
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
 
-    IHelpShopping\Controller\ControllerSwaggerDecorator:
+    ArticleHub\Controller\ControllerSwaggerDecorator:
         decorates: 'api_platform.swagger.normalizer.documentation'
-        arguments: [ '@IHelpShopping\Controller\ControllerSwaggerDecorator.inner']
+        arguments: [ '@ArticleHub\Controller\ControllerSwaggerDecorator.inner']
         autoconfigure: false
         tags:
             - { name: 'serializer.normalizer', priority: 18 }
 
-    IHelpShopping\EventListener\Security\AuthenticationSuccessListener:
+    ArticleHub\EventListener\Security\AuthenticationSuccessListener:
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
 
-    IHelpShopping\EventListener\User\UserEmailListener:
+    ArticleHub\EventListener\User\UserEmailListener:
         tags:
             - { name: doctrine.event_subscriber, event: onFlush }
 
-    IHelpShopping\Mailer\UserMailer:
+    ArticleHub\Mailer\UserMailer:
         decorates: API\UserBundle\Mailer\Mailer
         arguments:
-            $mailer: '@IHelpShopping\Mailer\UserMailer.inner'
+            $mailer: '@ArticleHub\Mailer\UserMailer.inner'
             $parameters: '%api_user.mailer.parameters%'
         tags:
             - { name: api_user.requires_swift }

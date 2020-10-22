@@ -23,11 +23,7 @@ Feature: Get Users
          "first_name",
          "last_name",
          "middle_name",
-         "address",
-         "title",
-         "phone_number",
-         "mobile_number",
-         "admin"
+         "title"
        ],
        "properties": {
          "@context": {
@@ -102,44 +98,12 @@ Feature: Get Users
              "foobar"
            ]
          },
-         "address": {
-           "$id": "#/properties/address",
-           "title": "The address Schema",
-           "type": "string",
-           "examples": [
-             "test address"
-           ]
-         },
          "title": {
            "$id": "#/properties/title",
            "title": "The title Schema",
            "type": ["null", "string"],
            "examples": [
              "Mr."
-           ]
-         },
-         "phone_number": {
-           "$id": "#/properties/phone_number",
-           "title": "The phone_number Schema",
-           "type": ["string", "null"],
-           "examples": [
-             "+1234567890"
-           ]
-         },
-         "mobile_number": {
-           "$id": "#/properties/mobile_number",
-           "title": "The mobile_number Schema",
-           "type": ["string", "null"],
-           "examples": [
-             "+0987654321"
-           ]
-         },
-         "admin": {
-           "$id": "#/properties/admin",
-           "title": "The admin Schema",
-           "type": "boolean",
-           "examples": [
-             "false"
            ]
          },
          "last_login": {
@@ -175,8 +139,7 @@ Feature: Get Users
          "email",
          "first_name",
          "last_name",
-         "middle_name",
-         "admin"
+         "middle_name"
        ],
        "properties": {
          "email": {
@@ -209,14 +172,6 @@ Feature: Get Users
            "type": ["string", "null"],
            "examples": [
              "foobar"
-           ]
-         },
-         "admin": {
-           "$id": "#/properties/admin",
-           "title": "The admin Schema",
-           "type": "boolean",
-           "examples": [
-             "false"
            ]
          }
        },

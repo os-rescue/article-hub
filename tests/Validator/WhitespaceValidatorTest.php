@@ -1,8 +1,8 @@
 <?php
 
-namespace IHelpShopping\Tests\Validator;
+namespace ArticleHub\Tests\Validator;
 
-use IHelpShopping\Entity\User;
+use ArticleHub\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

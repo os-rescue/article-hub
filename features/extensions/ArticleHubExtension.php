@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\BehatExtension;
+namespace ArticleHub\BehatExtension;
 
 use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
@@ -9,11 +9,11 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class IHelpShoppingExtension implements ExtensionInterface
+final class ArticleHubExtension implements ExtensionInterface
 {
     public function getConfigKey()
     {
-        return 'IHelpShopping_behat_extension';
+        return 'ArticleHub_behat_extension';
     }
 
     public function initialize(ExtensionManager $extensionManager)

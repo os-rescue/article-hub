@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\EventListener\Security;
+namespace ArticleHub\EventListener\Security;
 
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationSuccessEvent;
 use Symfony\Component\Security\Core\User\UserInterface;

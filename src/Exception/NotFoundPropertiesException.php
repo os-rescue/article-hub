@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Exception;
+namespace ArticleHub\Exception;
 
 class NotFoundPropertiesException extends \OutOfBoundsException
 {

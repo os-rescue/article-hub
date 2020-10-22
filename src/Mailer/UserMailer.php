@@ -1,12 +1,12 @@
 <?php
 
-namespace IHelpShopping\Mailer;
+namespace ArticleHub\Mailer;
 
 use API\UserBundle\Mailer\EmailTemplateRendererInterface;
 use API\UserBundle\Mailer\MailerInterface;
 use API\UserBundle\Model\UserInterface;
 use API\UserBundle\Mailer\Mailer as BaseMailer;
-use Eqsgroup\Enum\EmailAddress;
+use ArticleHub\Enum\EmailAddress;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**

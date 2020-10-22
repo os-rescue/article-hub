@@ -1,15 +1,15 @@
 <?php
 
-namespace IHelpShopping\Tests\DataProvider;
+namespace ArticleHub\Tests\DataProvider;
 
-use IHelpShopping\Entity\User;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use ArticleHub\Entity\User;
+use Doctrine\Persistence\ManagerRegistry;
 
 final class UserDataProvider
 {
     private $repository;
 
-    public function __construct(RegistryInterface $doctrine)
+    public function __construct(ManagerRegistry $doctrine)
     {
         $this->repository = $doctrine->getManager()->getRepository(User::class);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\DBAL;
+namespace ArticleHub\DBAL;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;

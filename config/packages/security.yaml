@@ -12,7 +12,7 @@
 
 security:
     encoders:
-        IHelpShopping\Entity\User:
+        ArticleHub\Entity\User:
             algorithm: 'auto'
 
     role_hierarchy:
@@ -22,7 +22,7 @@ security:
     providers:
         app_db_provider:
             entity:
-                class: IHelpShopping\Entity\User
+                class: ArticleHub\Entity\User
                 property: email
 
     firewalls:

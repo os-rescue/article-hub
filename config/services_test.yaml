@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: true
 
-    IHelpShopping\Tests\DataProvider\:
+    ArticleHub\Tests\DataProvider\:
         resource: '../tests/Fixtures/DataProvider/*'
 
     test.doctrine.database_drop_command:

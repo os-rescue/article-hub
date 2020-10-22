@@ -1,12 +1,12 @@
 <?php
 
-namespace IHelpShopping\EventListener\User;
+namespace ArticleHub\EventListener\User;
 
 use API\UserBundle\Message\UserEmailUpdate;
+use ArticleHub\Entity\User;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
-use IHelpShopping\Entity\User;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 final class UserEmailListener implements EventSubscriber

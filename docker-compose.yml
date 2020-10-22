@@ -1,11 +1,11 @@
 version: '3.4'
 
 services:
-  i-help-shopping-api:
+  article-hub-api:
     image: ${CONTAINER_REGISTRY_BASE}
     build:
       context: ./
-      target: i_help_shopping
+      target: article_hub
     depends_on:
       - db
     external_links:
@@ -23,8 +23,8 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=i_help_shopping
-      - MYSQL_USER=i_help_shopping
+      - MYSQL_DATABASE=article_hub
+      - MYSQL_USER=article_hub
       - MYSQL_PASSWORD=myadmin
     volumes:
       - db-data:/var/lib/mysql

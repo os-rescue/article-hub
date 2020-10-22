@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Exception;
+namespace ArticleHub\Exception;
 
 class MethodNotFoundException extends \Exception
 {

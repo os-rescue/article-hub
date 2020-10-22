@@ -1,10 +1,10 @@
 <?php
 
-namespace IHelpShopping\Tests\Validator;
+namespace ArticleHub\Tests\Validator;
 
-use IHelpShopping\Entity\User;
-use IHelpShopping\Validator\Constraints\CurrentPassword;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use ArticleHub\Entity\User;
+use ArticleHub\Validator\Constraints\CurrentPassword;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class CurrentPasswordValidatorTest extends KernelTestCase
@@ -19,7 +19,7 @@ class CurrentPasswordValidatorTest extends KernelTestCase
         self::bootKernel();
 
         $this->validator = self::$container->get('validator');
-        $this->manager = self::$container->get(RegistryInterface::class)->getManager();
+        $this->manager = self::$container->get(ManagerRegistry::class)->getManager();
     }
 
     /**

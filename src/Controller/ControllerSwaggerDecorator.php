@@ -1,6 +1,6 @@
 <?php
 
-namespace IHelpShopping\Controller;
+namespace ArticleHub\Controller;
 
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;

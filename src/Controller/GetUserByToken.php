@@ -1,9 +1,9 @@
 <?php
 
-namespace IHelpShopping\Controller;
+namespace ArticleHub\Controller;
 
 use API\UserBundle\Model\UserManagerInterface;
-use IHelpShopping\Dto\UserDataByToken;
+use ArticleHub\Dto\UserDataByToken;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;

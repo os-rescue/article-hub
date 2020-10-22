@@ -1,11 +1,11 @@
 <?php
 
-namespace IHelpShopping\DataFixtures;
+namespace ArticleHub\DataFixtures;
 
+use ArticleHub\DataFixtures\Traits\UserPersistenceTrait;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use IHelpShopping\DataFixtures\Traits\UserPersistenceTrait;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Yaml\Yaml;

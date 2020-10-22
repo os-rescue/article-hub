@@ -1,8 +1,8 @@
 <?php
 
-namespace IHelpShopping\Dto;
+namespace ArticleHub\Dto;
 
-use IHelpShopping\Entity\User;
+use ArticleHub\Entity\User;
 
 final class UserDataByToken
 {
@@ -18,7 +18,6 @@ final class UserDataByToken
         $this->firstName = $user->getFirstName();
         $this->middleName = $user->getMiddleName();
         $this->lastName = $user->getLastName();
-        $this->admin = $user->isAdmin();
     }
 
     public function getEmail(): string
@@ -39,10 +38,5 @@ final class UserDataByToken
     public function getLastName(): string
     {
         return $this->lastName;
-    }
-
-    public function isAdmin(): bool
-    {
-        return $this->admin;
     }
 }
